@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Translation Settings</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            width: 350px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .status {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: green;
+            text-align: center;
+        }
+        .api-key-group { /* Used to control the display/hide of API key fields */
+            display: none; /* Default hidden */
+            margin-bottom: 15px;
+        }
+        .api-key-group.active { /* When the parent element has the active class, display */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h3>AI Translation Settings</h3>
+
+    <label for="apiProvider">API Provider:</label>
+    <select id="apiProvider">
+        <option value="openrouter" selected>OpenRouter</option>
+        <option value="openai">OpenAI</option>
+        <option value="anthropic">Anthropic</option>
+        <option value="gemini">Google Gemini</option>
+    </select>
+
+    <div id="openrouter-key-group" class="api-key-group active">
+        <label for="openrouterApiKey">OpenRouter API Key:</label>
+        <input type="password" id="openrouterApiKey" placeholder="Enter your OpenRouter API key">
+        <label for="openrouterModel">LLM Model:</label>
+        <input type="text" id="openrouterModel" placeholder="e.g.: mistralai/mistral-7b-instruct">
+    </div>
+
+    <div id="openai-key-group" class="api-key-group">
+        <label for="openaiApiKey">OpenAI API Key:</label>
+        <input type="password" id="openaiApiKey" placeholder="Enter your OpenAI API key">
+        <label for="openaiModel">LLM Model:</label>
+        <input type="text" id="openaiModel" placeholder="e.g.: gpt-4o">
+    </div>
+
+    <div id="anthropic-key-group" class="api-key-group">
+        <label for="anthropicApiKey">Anthropic API Key:</label>
+        <input type="password" id="anthropicApiKey" placeholder="Enter your Anthropic API key">
+        <label for="anthropicModel">LLM Model:</label>
+        <input type="text" id="anthropicModel" placeholder="e.g.: claude-3-opus-20240229">
+    </div>
+
+    <div id="gemini-key-group" class="api-key-group">
+        <label for="geminiApiKey">Google Gemini API Key:</label>
+        <input type="password" id="geminiApiKey" placeholder="Enter your Google Gemini API key">
+        <label for="geminiModel">LLM Model:</label>
+        <input type="text" id="geminiModel" placeholder="e.g.: gemini-1.5-pro-latest">
+    </div>
+
+    <label for="targetLang">Target Language:</label>
+    <select id="targetLang">
+        <option value="English">English</option>
+        <option value="Traditional Chinese">Traditional Chinese</option>
+        <option value="Simplified Chinese">Simplified Chinese</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Korean">Korean</option>
+        <option value="French">French</option>
+        <option value="German">German</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Italian">Italian</option>
+        <option value="Portuguese">Portuguese</option>
+        <option value="Russian">Russian</option>
+        <option value="Thai">Thai</option>
+        <option value="Vietnamese">Vietnamese</option>
+        <option value="Indonesian">Indonesian</option>
+        <option value="Malay">Malay</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Arabic">Arabic</option>
+        <option value="Turkish">Turkish</option>
+        <option value="Dutch">Dutch</option>
+        <option value="Polish">Polish</option>
+        <option value="Czech">Czech</option>
+        <option value="Greek">Greek</option>
+        <option value="Hungarian">Hungarian</option>
+        <option value="Romanian">Romanian</option>
+        <option value="Ukrainian">Ukrainian</option>
+    </select>
+
+    <label for="textColor">Translation result text color:</label>
+    <input type="color" id="textColor" value="#333333" style="width: 50px; height: 30px; margin-bottom: 15px;">
+
+    <button id="saveButton">Save Settings</button>
+    <div id="status" class="status"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

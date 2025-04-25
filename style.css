@@ -1,0 +1,42 @@
+#ai-translate-button {
+    position: absolute;
+    z-index: 9999;
+    cursor: pointer;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color 0.2s ease;
+}
+
+#ai-translate-button:hover {
+    background-color: #0a58ca;
+}
+
+#ai-translation-tooltip {
+    position: absolute;
+    z-index: 10000;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    max-width: 350px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-size: 18px;
+}
+
+#ai-translation-tooltip:empty::before {
+    content: 'Loading...';
+    color: #6c757d;
+}
